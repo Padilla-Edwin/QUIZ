@@ -4,16 +4,18 @@ var presupuesto=0
 function saveTask(e) {
   let title = document.getElementById('title').value;
   let fecha = document.getElementById('fecha').value;
-  let valor = document.getElementById('valor').value;
+  let description = document.getElementById('description').value;
   console.log(description)
-  let tipo = document.getElementById('tipo').value;
+  let INGRESOS = document.getElementById('INGRESOS').value;
+  let EGRESOS = document.getElementById('EGRESOS').value;
   
 
   let task = {
     title,
-    valor,
+    description,
     fecha,
-    tipo,
+    INGRESOS,
+    EGRESOS,
   };
 
   if(localStorage.getItem('tasks') === null) {
@@ -29,13 +31,6 @@ function saveTask(e) {
   getTasks();
   document.getElementById('formTask').reset();
   e.preventDefault();
-  if (tipo === 'ingreso') {
-    presupuesto += parseFloat(valor)
-    console.log(presupuesto)
-   } else {
-    presupuesto -= parseFloat(valor)
-    console.log(presupuesto)
-   }
 }
 
 function deleteTask(title) {
@@ -58,12 +53,13 @@ function getTasks() {
   for(let i = 0; i < tasks.length; i++) {
     let title = tasks[i].title;
     let fecha = tasks[i].fecha;
-    let valor = tasks[i].valor;
-    let tipo = tasks[i].tipo;
+    let description = tasks[i].description;
+    let INGRESOS = tasks[i].INGRESOS;
+    let EGRESOS = task[i].EGRESOS;
 
     tasksView.innerHTML += `<div class="card mb-3">
         <div class="card-body">
-          ${title} - ${valor} - ${fecha} - ${tipo}
+          ${title} - ${description} - ${fecha} - ${INGRESOS} - ${EGRESOS}
           <a href="#" onclick="deleteTask('${title}')" class="btn btn-outline-primary ml-5">COMPLETA</a>
           </p>
         </div>
