@@ -99,7 +99,7 @@ function getActions() {
   if (tipo === 'ingreso') {
    let valor = fNumber.go(acciones[i].valor, '$')
    visualizacion.innerHTML += `<div class="card border-success mb-3">
-    <div class="card-body text-danger">
+    <div class="card-body text">
       <p>
       <strong>Tipo de accion</strong>: ${tipo}
       <strong>Valor</strong>: ${valor}
@@ -107,7 +107,7 @@ function getActions() {
       <strong>Tipo de comentario</strong>: ${Comentario}
       <strong>comentario</strong>: ${comentario}
       
-      <a href="#" onclick="deleteAction('${fecha}')" class="btn btn-danger ms-3">Eliminar</a>
+      <a href="#" onclick="deleteAction('${fecha}')" class="btn btn-outline-succes ms-3">Eliminar</a>
       
       </p>
     </div>
@@ -115,7 +115,7 @@ function getActions() {
   } else {
    let valor = fNumber.go(acciones[i].valor, '$')
    visualizacion.innerHTML += `<div class="card border-danger mb-3">
-    <div class="card-body text-danger">
+    <div class="card-body text">
       <p>
       <strong>Tipo de accion</strong>: ${tipo}
       <strong>Valor</strong>: ${valor}
